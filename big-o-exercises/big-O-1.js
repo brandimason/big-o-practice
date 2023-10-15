@@ -20,4 +20,4 @@ function funChallenge(input) {
   }
 
 // if we add all these up - we will see we have 3 steps (O(1) three times) + n + n + n + n
-// BIG O(3 + 4N)
+// BIG O(3 + 4N) -- this just turns in O(n)

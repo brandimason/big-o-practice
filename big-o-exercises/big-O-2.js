@@ -13,8 +13,9 @@ function anotherFunChallenge(input) {
       let p = j * 2; // O(n)*
       let q = j * 2;// O(n)*
     }
-    let whoAmI = "I don't know"; // O(n)*
+    let whoAmI = "I don't know"; // O(n)* whoops this is 0(1)
   }
 
 // BIG O(3 + 7N)
 // the * indicates my first time trying this after going through exercise 1, before watching the video on exercise 2
+// BIG O(4 +7N) -- this just turns in O(n)
