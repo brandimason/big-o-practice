@@ -1,9 +1,9 @@
 # simple linked list implementation
-class LinkedList():
+class ListNode():
     val = 0
     next = None
 
-    def __init__(self, v, n):
+    def __init__(self, v, n=None):
         self.val = v
         self.next = n
 
@@ -17,7 +17,14 @@ def print_ll(ll):
 
 def add_element_at(ll, elem, pos):
     # you code here
-    return LinkedList(-1, None)
+    temp = ll
+    count = 0
+    while count < pos - 1:
+        count += 1
+        temp = temp.next
+    new_node = ListNode(elem, temp.next)
+    temp.next = new_node
+    return ll
 
 
 def remove_element_at(ll, pos):
@@ -27,20 +34,40 @@ def remove_element_at(ll, pos):
 
 # push adds an element to the list
 def push(ll, elem):
-    # your code here
-    return None
+    # if ll is none, return new ListNode
+    temp = ll
+    if temp == None:
+        return ListNode(elem, None)
+    while temp != None and temp.next != None:
+        temp = temp.next
+    temp.next = ListNode(elem, None)
+    return ll
 
 
 # pop removes the last element in the list
 def pop(ll):
-    # your code here
-    return None
+    # if no elements in list, return None
+
+    # if only 1 element in list, return None
+    temp = ll
+    if temp == None or temp.next == None:
+        return None
+    while temp.next.next != None:
+        temp = temp.next
+    temp.next = None
+    return ll
 
 
 if __name__ == "__main__":
     
-    ll = LinkedList(0, None)
+    ll = ListNode(0, None)
     print_ll(ll) # [0]
+
+    temp = pop(ll)
+    print_ll(temp)
+    pop(temp)
+
+    push(temp, 0)
 
     ll = push(ll, 5) # ll = [0, 5]
     ll = push(ll, 10) # ll = [0, 5, 10]
